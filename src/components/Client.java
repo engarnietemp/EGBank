@@ -15,9 +15,9 @@ public class Client {
 	
 	// 1.1.1 Creation of Methods
 	
-	public Client(String name, String first_name) {
+	public Client(String name, String firstName) {
 		this.name = name;
-		this.firstName = first_name;
+		this.firstName = firstName;
 		this.clientNumber = ++clientId;
 	}
 
@@ -33,8 +33,8 @@ public class Client {
 		return firstName;
 	}
 
-	public void setFirstName(String first_name) {
-		this.firstName = first_name;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public int getClientNumber() {
