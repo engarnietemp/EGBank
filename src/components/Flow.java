@@ -27,7 +27,7 @@ public abstract class Flow {
 		this.comment = comment;
 		
 		this.identifier = FLOW_COUNTER.incrementAndGet();
-		this.dateOfFlow = LocalDateTime.now().plusDays(2);
+		this.dateOfFlow = LocalDateTime.now().plusDays(2); // +2 days here
 		this.effect = true;
 	}
 
@@ -66,6 +66,4 @@ public abstract class Flow {
 	public int getIdentifier() {
 		return identifier;
 	}
-	
-	
 }

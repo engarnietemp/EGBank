@@ -1,0 +1,26 @@
+{
+  "flows": [
+    {
+      "type": "Debit",
+      "comment": "Frais bancaires",
+      "amount": 50.0,
+      "targetAccountNumber": 1,
+      "date": "2025-09-19T10:00:00"
+    },
+    {
+      "type": "Credit",
+      "comment": "Bonus courant",
+      "amount": 100.5,
+      "targetAccountNumber": 1,
+      "date": "2025-09-19T10:00:00"
+    },
+    {
+      "type": "Transfert",
+      "comment": "Virement interne",
+      "amount": 50.0,
+      "targetAccountNumber": 2,
+      "accountIssuerNumber": 1,
+      "date": "2025-09-19T10:00:00"
+    }
+  ]
+}

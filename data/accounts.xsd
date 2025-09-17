@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="accounts">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="account" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                        	<xs:element name="accountNumber" type="xs:int"/>
+                            <xs:element name="type" type="xs:string"/>
+                            <xs:element name="label" type="xs:string"/>
+                            <xs:element name="balance" type="xs:double"/>
+                            <xs:element name="client">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                    	<xs:element name="clientNumber" type="xs:int"/>
+                                        <xs:element name="name" type="xs:string"/>
+                                        <xs:element name="firstName" type="xs:string"/>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

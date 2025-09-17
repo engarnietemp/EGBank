@@ -20,6 +20,15 @@ public class Client {
 		this.firstName = firstName;
 		this.clientNumber = CLIENT_COUNTER.incrementAndGet();
 	}
+	
+    // 2.2 Needed to keep clientNumber during the XML import
+    public Client(String name, String firstName, int clientNumber) {
+        this.name = name;
+        this.firstName = firstName;
+        this.clientNumber = clientNumber;
+
+        CLIENT_COUNTER.updateAndGet(current -> Math.max(current, clientNumber));
+    }
 
 	public String getName() {
 		return name;

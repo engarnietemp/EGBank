@@ -21,6 +21,17 @@ public abstract class Account {
 		this.label = label;	
 		this.accountNumber = ACCOUNT_COUNTER.incrementAndGet();
 	}
+    
+	// 2.2 Needed in the XML import to keep accountNumber & balance
+	protected Account(String label, Client client, int accountNumber, double balance) {
+        this.client = client;
+        this.label = label;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+
+        ACCOUNT_COUNTER.updateAndGet(current -> Math.max(current, accountNumber));
+    }
+	
 
 	public double getBalance() {
 		return balance;
