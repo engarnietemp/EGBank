@@ -43,12 +43,12 @@ public abstract class Account {
 	
 	// 1.3.5 new method setBalance
 	public void setBalance(Flow flow) {
-	    switch (flow.getClass().getSimpleName()) {
-	        case "Credit" -> this.balance += flow.getAmount();
+	    switch (flow) {
+	        case Credit c -> this.balance += c.getAmount();
 	        
-	        case "Debit" -> this.balance -= flow.getAmount();
+	        case Debit d -> this.balance -= d.getAmount();
 	        
-	        case "Transfert" -> applyTransfer((Transfert) flow);
+	        case Transfert t -> applyTransfer(t);
 	        
 	        default -> throw new IllegalArgumentException("Unknown flow type: " + flow.getClass().getSimpleName());
 	    }

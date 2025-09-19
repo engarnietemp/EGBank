@@ -54,7 +54,9 @@ public class Main {
 	        List<Flow> flows = JsonFlowImporter.loadFlows(JSON_PATH);
 
 	        System.out.println("\n" + flows.size() + " flows chargés depuis JSON :\n");
-	        flows.stream().forEach(Flow::toString);
+	        flows.stream()
+	        	 .map(Flow::toString)
+	        	 .forEach(System.out::println);
 	        
 	        System.out.println("\nApplication des flows...");
 	        
