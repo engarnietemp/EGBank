@@ -45,24 +45,27 @@ public abstract class Account {
 	public void setBalance(Flow flow) {
 	    switch (flow.getClass().getSimpleName()) {
 	        case "Credit" -> this.balance += flow.getAmount();
+	        
 	        case "Debit" -> this.balance -= flow.getAmount();
-	        case "Transfer" -> applyTransfer((Transfert) flow);
+	        
+	        case "Transfert" -> applyTransfer((Transfert) flow);
+	        
 	        default -> throw new IllegalArgumentException("Unknown flow type: " + flow.getClass().getSimpleName());
 	    }
 	}
 	
 	// 1.3.5 Used in setBalance
-	private void applyTransfer(Transfert transfer) {
+	private void applyTransfer(Transfert transfert) {
 	    
-		if (transfer.getTargetAccountNumber() == this.accountNumber) {
-	        this.balance += transfer.getAmount();
+		if (transfert.getTargetAccountNumber() == this.accountNumber) {
+	        this.balance += transfert.getAmount();
 	    } 
 	    
-	    else if (transfer.getAccountIssuerNumber() == this.accountNumber) {
-	        this.balance -= transfer.getAmount();
+	    else if (transfert.getAccountIssuerNumber() == this.accountNumber) {
+	        this.balance -= transfert.getAmount();
 	    }
 	    else {
-	    	System.out.println("Tranfert doesn't concern account " + this.accountNumber);
+	    	System.out.println("Tranfer doesn't concern account " + this.accountNumber);
 	    }
 	}
 

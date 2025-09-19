@@ -66,4 +66,15 @@ public abstract class Flow {
 	public int getIdentifier() {
 		return identifier;
 	}
+	
+	@Override
+	public String toString() {
+	    return getClass().getSimpleName() + "{" +
+	           "id=" + identifier +
+	           ", target=" + targetAccountNumber +
+	           ", amount=" + amount +
+	           ", comment='" + comment + '\'' +
+	           ", date=" + dateOfFlow +
+	           '}';
+	}
 }

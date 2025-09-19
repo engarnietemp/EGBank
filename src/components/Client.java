@@ -18,6 +18,7 @@ public class Client {
 	public Client(String name, String firstName) {
 		this.name = name;
 		this.firstName = firstName;
+		
 		this.clientNumber = CLIENT_COUNTER.incrementAndGet();
 	}
 	
