@@ -1,11 +1,16 @@
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine AS build
 
-RUN apk add --no-cache git
+WORKDIR /app
+COPY . .
+
+RUN mkdir -p bin
+RUN find src -name "*.java" -type f -print | xargs javac -d bin -cp bin
+
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
-RUN git clone https://github.com/engarnietemp/EGBank.git . || (echo "Error: impossible to clone the repo" && exit 1)
+COPY --from=build /app/bin ./bin
 
-RUN javac -d bin -sourcepath src $(find src -name "*.java")
-
+COPY --from=build /app/data ./data
 CMD ["java", "-cp", "bin", "main.Main"]
